@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Isabella, Meu Amor Eterno 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rosa:#ffb6c1;
+  --vinho:#7a1f3d;
+  --dourado:#d4af37;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:radial-gradient(circle at top,#2b0f1f,#120008);
+  color:#fff;
+  overflow-x:hidden;
+}
+header{
+  padding:80px 20px;
+  text-align:center;
+}
+header h1{
+  font-family:'Great Vibes',cursive;
+  font-size:4rem;
+  color:var(--rosa);
+}
+header p{
+  font-size:1.4rem;
+  max-width:700px;
+  margin:20px auto 0;
+}
+section{
+  padding:80px 20px;
+  max-width:1200px;
+  margin:auto;
+}
+.titulo{
+  font-family:'Playfair Display',serif;
+  font-size:2.8rem;
+  text-align:center;
+  color:var(--dourado);
+  margin-bottom:40px;
+}
+/* SLIDES */
+.slider{
+  display:flex;
+  overflow:hidden;
+  position:relative;
+}
+.slide{
+  min-width:100%;
+  transition:1s;
+  text-align:center;
+}
+.slide span{
+  font-size:3rem;
+}
+/* LISTA */
+.lista{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+.card{
+  background:rgba(255,255,255,0.08);
+  border-radius:20px;
+  padding:30px;
+  backdrop-filter:blur(10px);
+  animation:flutuar 6s ease-in-out infinite;
+}
+@keyframes flutuar{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+/* GALERIA */
+.galeria{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+.galeria img{
+  width:100%;
+  border-radius:20px;
+  transition:.6s;
+}
+.galeria img:hover{
+  transform:scale(1.08) rotate(1deg);
+}
+/* CARTA */
+#carta{
+  font-size:1.3rem;
+  line-height:1.8;
+  max-width:800px;
+  margin:auto;
+  min-height:200px;
+}
+/* CRONOMETRO */
+.cronometro{
+  font-size:1.6rem;
+  text-align:center;
+}
+footer{
+  padding:40px;
+  text-align:center;
+  font-size:1.1rem;
+  opacity:.8;
+}
+audio{
+  position:fixed;
+  bottom:10px;
+  left:10px;
+  z-index:999;
+}
+</style>
+</head>
+<body>
+
+<audio controls autoplay loop>
+  <source src="musica/aliancas-tribalistas.mp3" type="audio/mpeg">
+</audio>
+
+<header>
+  <h1>Isabella 💖</h1>
+  <p>Este site é o meu coração traduzido em código. Tudo aqui foi feito pensando em você.</p>
+</header>
+
+<section>
+  <h2 class="titulo">✨ 12 Coisas Que Mais Amo em Você ✨</h2>
+  <div class="lista">
+    <div class="card">Seu sorriso brilhante</div>
+    <div class="card">Sua voz linda</div>
+    <div class="card">Seu carinho e afeto</div>
+    <div class="card">Seu toque</div>
+    <div class="card">Seu jeitinho único</div>
+    <div class="card">Sua lealdade</div>
+    <div class="card">Sua alegria</div>
+    <div class="card">Seu olhar e seus olhos</div>
+    <div class="card">Nossos momentos juntos</div>
+    <div class="card">Seu cheiro</div>
+    <div class="card">Seu jeito de me amar</div>
+    <div class="card">Cada pedacinho do seu ser</div>
+  </div>
+</section>
+
+<section>
+  <h2 class="titulo">📸 Nossas Memórias</h2>
+  <div class="galeria">
+    <img src="fotos/1.jpg">
+    <img src="fotos/2.jpg">
+    <img src="fotos/3.jpg">
+    <img src="fotos/4.jpg">
+  </div>
+</section>
+
+<section>
+  <h2 class="titulo">💌 Carta Para Você</h2>
+  <div id="carta"></div>
+</section>
+
+<section>
+  <h2 class="titulo">⏳ Contagem Regressiva Até Nosso Reencontro</h2>
+  <div class="cronometro" id="timer"></div>
+</section>
+
+<footer>
+  Feito com amor eterno por você 💖 | Site permanente
+</footer>
+
+<script>
+// CARTA DIGITANDO
+const textoCarta = `Isabella,\n\nDesde o dia em que nossos olhos se cruzaram, algo em mim mudou. Amar você é natural, é leve, é verdadeiro. Mesmo com a distância que virá, cada segundo longe será apenas uma prova de que o nosso amor é maior que qualquer estado, tempo ou saudade. Eu estarei aqui, esperando, contando os dias, te amando em silêncio e em pensamento. Você é e sempre será o meu lugar seguro.`;
+let i=0;
+function escrever(){
+  if(i<textoCarta.length){
+    document.getElementById('carta').innerHTML += textoCarta.charAt(i)==='\n' ? '<br>' : textoCarta.charAt(i);
+    i++;
+    setTimeout(escrever,45);
+  }
+}
+escrever();
+
+// CRONOMETRO
+const inicio = new Date('2026-01-07T00:00:00');
+const fim = new Date('2029-02-13T00:00:00');
+function atualizar(){
+  const agora = new Date();
+  if(agora < inicio){
+    document.getElementById('timer').innerText = 'Nosso amor será testado em breve… 💖';
+    return;
+  }
+  let diff = fim - agora;
+  if(diff <= 0){
+    document.getElementById('timer').innerText = 'Ela voltou… Nosso amor venceu ❤️';
+    return;
+  }
+  const dias = Math.floor(diff/1000/60/60/24);
+  const anos = Math.floor(dias/365);
+  const meses = Math.floor((dias%365)/30);
+  const d = dias - (anos*365 + meses*30);
+  document.getElementById('timer').innerText = `${anos} anos, ${meses} meses e ${d} dias para o nosso reencontro 💞`;
+}
+setInterval(atualizar,1000);
+atualizar();
+</script>
+</body>
+</html>
+
